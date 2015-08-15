@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>5 Minute Meditation</title>
+    
+    <link href="css/site.css" type="text/css" rel="stylesheet"> 
+    
+    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    
+    <!--  Font  -->
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+</head>
+    
+<body>
+    <div id="startButton" class="hoverActive" style="display: none">
+        <span id="beginText">Begin</span>
+    </div>
+    
+    <div id="pulsingRing" style="display: none"></div>
+    
+    <div id="guidingText"></div>
+
+
+</body>
+    
+<script>
+    $(function() {
+        var _startButton, _pulsingRing = null;
+        
+        initializeStartButton();
+    });
+    
+    function initializeStartButton(){
+        _startButton = $("#startButton");
+        
+        _startButton.fadeIn(1200);
+        
+        
+        _startButton.click(function(){
+            _startButton.removeClass("hoverActive");
+            
+            $("#beginText").animate({opacity: 0});
+            _startButton.animate({
+                width: "60px",
+                height: "60px",
+            }, 1500, "easeOutBounce", function(){
+               beginMeditation().delay(800);
+            });
+        });
+    };
+    
+    function beginMeditation() {
+        _pulsingRing = $("#pulsingRing");
+
+        _pulsingRing.show();
+        
+        pulsingRingAnimation();
+        
+    }
+    
+    function pulsingRingAnimation() {
+        _pulsingRing.delay(600).animate({
+            width: "150px",
+            height: "150px"
+        }, 3000, "easeInSine", function(){
+            _pulsingRing.delay(600).animate({
+                width: "60px",
+                height: "60px"
+            }, 3000, "easeInSine", function(){
+                pulsingRingAnimation();
+            });
+        });
+    }
+</script>
+    
+</html>

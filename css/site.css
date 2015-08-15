@@ -1,0 +1,53 @@
+html {
+    background-color: #00B4FF;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+#startButton {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    border-radius: 50%;
+    background-color: #0DFFC3;
+    border: none;
+    
+    text-align: center;
+    line-height: 150px;
+    font-size: 25px;
+    
+    /*  Make text unselectable  */
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    
+    transition: box-shadow .4s ease-in;
+    box-shadow: 0 0 1em clear;
+}
+
+#pulsingRing {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    border-radius: 50%;
+    background-color: #00E6AA;
+    border: none;
+    z-index: -5;
+}
+
+.hoverActive:hover {
+    transition: box-shadow .4s ease-in;
+    box-shadow: 0 0 1em #008044;
+    cursor: pointer;
+}
+
+#startButton:click
