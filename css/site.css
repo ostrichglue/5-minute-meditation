@@ -3,7 +3,27 @@ html {
     font-family: 'Josefin Sans', sans-serif;
 }
 
-#startButton {
+#helpText, #guidingText, #currentText {
+    display: none;
+    
+    position: fixed;
+    text-align: center;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    font-size: 20px;
+}
+
+#guidingText {
+    top: 50%;  
+    z-index: 5;
+    opacity: .75;
+}
+
+#startButton, #musicOptionButton, #fullscreenButton {
+    display: none;
+    
     position: fixed;
     width: 150px;
     height: 150px;
@@ -26,11 +46,27 @@ html {
     -ms-user-select: none;
     user-select: none;
     
+    /* Hover effect */
     transition: box-shadow .4s ease-in;
     box-shadow: 0 0 1em clear;
 }
 
+#musicOptionButton, #fullscreenButton {
+    left: 37%;
+    width: 100px;
+    height: 100px;
+    
+    line-height: 100px;
+    font-size: 16px;
+}
+
+#fullscreenButton {
+    left: 63%;   
+}
+
 #pulsingRing {
+    display: none;
+    
     position: fixed;
     width: 50px;
     height: 50px;
@@ -45,9 +81,9 @@ html {
 }
 
 .hoverActive:hover {
+    /* Hover effect */
     transition: box-shadow .4s ease-in;
     box-shadow: 0 0 1em #008044;
     cursor: pointer;
 }
 
-#startButton:click

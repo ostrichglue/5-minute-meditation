@@ -15,42 +15,75 @@
 </head>
     
 <body>
-    <div id="startButton" class="hoverActive" style="display: none">
-        <span id="beginText">Begin</span>
+    <audio id="backgroundMusic" src="SimplerTimes.mp3" preload="auto"></audio>
+    
+    <div id="helpText"> Before you begin, make sure you are comfortable and free from distractions.</div>
+    <div id="guidingText"></div>
+    
+    <span id="currentText"></span>
+    
+    <div id="startButton" class="hoverActive">
+        <span id="beginText" class="bubbleText">Begin</span>
     </div>
     
-    <div id="pulsingRing" style="display: none"></div>
+    <div id="musicOptionButton" class="hoverActive optionButton">
+        <span id="musicOnOffText" class="bubbleText">Music: Off</span>
+    </div>
+    
+    <div id="fullscreenButton" class="hoverActive optionButton">
+        <span id="fullscreenOnOffText" class="bubbleText">Fullscreen: Off</span>
+    </div>
+    
+    <div id="pulsingRing"></div>
     
     <div id="guidingText"></div>
-
-
 </body>
     
 <script>
     $(function() {
-        var _startButton, _pulsingRing = null;
+        var _startButton, _pulsingRing, _helpText, _textArray, 
+            _guidingText, _musicOptionButton,
+            _fullscreenButton= null;
         
-        initializeStartButton();
+        initialize();
+        createTextArray();
     });
     
-    function initializeStartButton(){
-        _startButton = $("#startButton");
+    function initialize(){
+        _startButton        = $("#startButton");
+        _musicOptionButton  = $("#musicOptionButton");
+        _fullscreenButton   = $("#fullscreenButton");
+        _helpText           = $("#helpText");
+        _optionButtons      = $(".optionButton");
         
-        _startButton.fadeIn(1200);
+        _helpText.fadeIn(2000);
+        _startButton.delay(1500).fadeIn(1200);
+        _musicOptionButton.delay(1700).fadeIn(1200);
+        _fullscreenButton.delay(1700).fadeIn(1200);
         
         
         _startButton.click(function(){
             _startButton.removeClass("hoverActive");
+            _helpText.fadeOut(500);
             
-            $("#beginText").animate({opacity: 0});
+            $(".bubbleText").fadeOut(300);
             _startButton.animate({
                 width: "60px",
                 height: "60px",
             }, 1500, "easeOutBounce", function(){
                beginMeditation().delay(800);
             });
+            
+            _optionButtons.animate({
+                width: "60px",
+                height: "60px",
+                left: "50%"
+                
+            }, 700, "easeOutCubic", function(){});
+            
+            
         });
-    };
+    }
     
     function beginMeditation() {
         _pulsingRing = $("#pulsingRing");
@@ -58,7 +91,7 @@
         _pulsingRing.show();
         
         pulsingRingAnimation();
-        
+        beginGuidingText();
     }
     
     function pulsingRingAnimation() {
@@ -73,6 +106,39 @@
                 pulsingRingAnimation();
             });
         });
+    }
+    
+    function beginGuidingText() {
+        _guidingText = $("#guidingText");
+        
+        changeText(_textArray, 0);
+    }
+    
+    function changeText(array, counter) {
+        //Continue until all text has been used
+        if(counter <= array.length) {
+            _guidingText.delay(800).fadeIn(1000, function() {
+               _guidingText.delay(2000).fadeOut(1000, function() {
+                    _guidingText.text(array[counter]);
+                   counter++;
+                   changeText(array, counter);
+               });
+            });
+        }
+        else {
+            endMeditation();   
+        }
+    }
+    
+    function createTextArray() {
+        _textArray = [
+            "Relax", "Take the next few minutes for yourself", "Focus on the dot", "Let your breathing follow it", "Breathing in as it expands",
+            "And breathing out as it contracts", "And as you breathe in and out", "Allow every muscle in your body", "To relax"
+        ];
+    }
+    
+    function endMeditation() {
+        
     }
 </script>
     
