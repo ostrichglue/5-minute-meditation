@@ -1,5 +1,5 @@
 html {
-    background-color: #00B4FF;
+    background-color: #E5FFFF;
     font-family: 'Josefin Sans', sans-serif;
 }
 
@@ -75,7 +75,7 @@ html {
     transform: translate(-50%, -50%);
     
     border-radius: 50%;
-    background-color: #00E6AA;
+    background-color: #33FFDD;
     border: none;
     z-index: -5;
 }
