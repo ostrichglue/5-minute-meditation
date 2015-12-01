@@ -1,47 +1,69 @@
 <!doctype html>
 <html>
+
 <head>
-    <meta charset="UTF-8">
-    <title>5 Minute Meditation</title>
-    
-    <link href="css/site.css" type="text/css" rel="stylesheet"> 
-    
-    <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
-    <script src="js/site.js"></script>
-    
-    <!--  Font  -->
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+  <meta charset="UTF-8">
+  <title>5 Minute Meditation</title>
+
+  <link href="css/site.css" type="text/css" rel="stylesheet">
+
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+  <script src="js/site.js"></script>
+
+  <!--  Font  -->
+  <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
-    
+
 <body>
-<!--    <audio id="backgroundMusic" src="SimplerTimes.mp3" preload="auto"></audio>-->
-    
-    <div id="helpText"> Before you begin, make sure you are comfortable and free from distractions.</div>
-    <div id="guidingText"></div>
-    
-    <span id="currentText"></span>
-    
-    <div id="startButton" class="hoverActive">
-        <span id="beginText" class="bubbleText">Begin</span>
+  <!--    <audio id="backgroundMusic" src="SimplerTimes.mp3" preload="auto"></audio>-->
+
+  <div id="helpText" class="unselectable">
+    Before you begin, make sure you are comfortable and free from distractions.
+  </div>
+  <div id="guidingText"></div>
+
+  <span id="currentText"></span>
+
+  <div id="buttons">
+    <div id="startButton" class="hoverActive button">
+      <span id="beginText" class="unselectable bubbleText">Begin</span>
     </div>
-    
-<!--
+
+    <!--
     <div id="musicOptionButton" class="hoverActive optionButton">
         <span id="musicOnOffText" class="bubbleText">Music: Off</span>
     </div>
 -->
-    
-    <div id="fullscreenButton" class="hoverActive optionButton">
-        <span id="fullscreenOnOffText" class="bubbleText fullscreenOff">Fullscreen</span>
+
+    <div id="fullscreenButton" class="optionButton hoverActive button">
+      <span id="fullscreenOnOffText" class="unselectable bubbleText fullscreenOff">Fullscreen</span>
     </div>
-    
-    <div id="pulsingRing"></div>
-    
-    <div id="guidingText"></div>
-  
-    <div id="pauseButton">Pause</div>
+
+    <div id="aboutButton" class="optionButton hoverActive button">
+      <span id="aboutButtonText" class="unselectable bubbleText">About</span>
+    </div>
+  </div>
+
+  <div id="pulsingRing"></div>
+
+  <div id="guidingText"></div>
+
+  <div id="pauseButton" class="inProgressOptionButton">Pause</div>
+
+  <div id="exitButton" class="inProgressOptionButton">Exit</div>
+
+  <div id="aboutSection">
+    <div id="aboutInfo">
+      Welcome to 5 Minute Meditation! I decided to create this site after I began to get panic attacks my junior year of college. I found that deep breathing exercises were effective in helping myself calm down during them, and wanted to create a simple and quick guided breathing exercise for myself and others to use. Thankfully, I rarely have attacks anymore, but still use this breathing exercise when feeling stressed. Hopefully you find some use in this as well, whether it be for calming down or just taking a few minutes to unwind.
+      <br>
+      <br>-Sam
+      <div id="returnButton" class="hoverActive">
+        <span id="returnText" class="unselectable bubbleText">Return</span>
+      </div>
+    </div>
+  </div>
 </body>
-    
+
 </html>

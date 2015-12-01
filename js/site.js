@@ -1,145 +1,165 @@
-$(function() {
-    var _startButton, _pulsingRing, _helpText, _textArray, 
-        _guidingText, _musicOptionButton,
-        _fullscreenButton, _fullscreenText, _pauseButton = null;
-    initialize();
+$(function () {
+  initialize();
 });
 
-function initialize(){
-    _startButton        = $("#startButton");
-    _musicOptionButton  = $("#musicOptionButton");
-    _fullscreenButton   = $("#fullscreenButton");
-    _helpText           = $("#helpText");
-    _optionButtons      = $(".optionButton");
-    _fullscreenText     = $("#fullscreenOnOffText");
-    _pauseButton        = $("#pauseButton");
-    _counter            = 0;
-    _paused             = false;
+function initialize() {
+  _startButton = $("#startButton");
+  _musicOptionButton = $("#musicOptionButton");
+  _fullscreenButton = $("#fullscreenButton");
+  _aboutButton = $("#aboutButton");
+  _returnButton = $("#returnButton");
+  _helpText = $("#helpText");
 
-    _helpText.fadeIn(2000);
-    _startButton.delay(1500).fadeIn(1200);
-    _musicOptionButton.delay(1700).fadeIn(1200);
-    _fullscreenButton.delay(1700).fadeIn(1200);
-    createTextArray();
-  
-    //Fullscreen functionality
-    _fullscreenButton.click(function(){
-//      if(_fullscreenText.hasClass("fullscreenOff")){
-//        _fullscreenText.text("Fullscreen: On");
-//        _fullscreenText.removeClass("fullscreenOff");
-//      }
-//      else{
-//        _fullscreenText.text("Fullscreen: Off");
-//        _fullscreenText.addClass("fullscreenOff");
-//      }
-//      
-      toggleFullScreen();
+  _optionButtons = $(".optionButton");
+  _inProgressOptionButtons = $(".inProgressOptionButton");
+  _buttons = $(".button");
+
+  _fullscreenText = $("#fullscreenOnOffText");
+  _aboutText = $("#aboutInfo");
+
+  _pauseButton = $("#pauseButton");
+  _exitButton = $("#exitButton");
+
+  _counter = 0;
+  _paused = false;
+
+  _helpText.fadeIn(2000);
+  _startButton.delay(1500).fadeIn(1200);
+  _optionButtons.delay(1700).fadeIn(1200);
+  createTextArray();
+
+  //Fullscreen functionality
+  _fullscreenButton.click(function () {
+    toggleFullScreen();
+  });
+
+  //About functionality
+  _aboutButton.click(function () {
+    displayAboutInfo();
+  })
+
+  //Begin meditation
+  _startButton.click(function () {
+    $("div").removeClass("hoverActive");
+
+    //Fade out misc elements
+    _helpText.fadeOut(500);
+    _optionButtons.fadeOut(300);
+    $(".bubbleText").fadeOut(300);
+
+    //Little bounce animation as the script begins
+    _startButton.animate({
+      width: "60px",
+      height: "60px",
+    }, 1500, "easeOutBounce", function () {
+      beginMeditation();
     });
-  
-    _startButton.click(function(){
-        $("div").removeClass("hoverActive");
-        _helpText.fadeOut(500);
 
-        $(".bubbleText").fadeOut(300);
-        
-        _startButton.animate({
-            width: "60px",
-            height: "60px",
-        }, 1500, "easeOutBounce", function(){
-           beginMeditation();
-        });
+    createInProgressOptionButtons();
+  });
+}
 
-        _optionButtons.animate({
-            width: "45px",
-            height: "45px",
-            left: "50%"
+function displayAboutInfo() {
+  _buttons.fadeOut(500);
+  _helpText.fadeOut(500);
 
-        }, 700, "easeOutCubic");
+  _returnButton.fadeIn(300);
+  _aboutText.fadeIn(400);
 
-        createPauseButton();
-    });
+  _returnButton.click(function () {
+    _returnButton.fadeOut(300);
+    _aboutText.fadeOut(400);
+    initialize();
+  });
 }
 
 function beginMeditation() {
-    _pulsingRing = $("#pulsingRing");
+  _pulsingRing = $("#pulsingRing");
 
-    _pulsingRing.show();
+  _pulsingRing.show();
 
-    pulsingRingAnimation();
-    beginGuidingText();
+  pulsingRingAnimation();
+  beginGuidingText();
 }
 
+//Repeating function to create a pulsing ring
+//The user uses this ring to match breathing
 function pulsingRingAnimation() {
+  _pulsingRing.delay(600).animate({
+    width: "150px",
+    height: "150px"
+  }, 3000, "easeInSine", function () {
     _pulsingRing.delay(600).animate({
-        width: "150px",
-        height: "150px"
-    }, 3000, "easeInSine", function(){
-        _pulsingRing.delay(600).animate({
-            width: "60px",
-            height: "60px"
-        }, 3000, "easeInSine", function(){
-            if(!_paused){
-                pulsingRingAnimation();
-            }
-        });
+      width: "60px",
+      height: "60px"
+    }, 3000, "easeInSine", function () {
+      if (!_paused) {
+        pulsingRingAnimation();
+      }
     });
+  });
 }
 
 function beginGuidingText() {
-    _guidingText = $("#guidingText");
+  _guidingText = $("#guidingText");
 
-    changeText(_textArray, 0);
+  changeText(_textArray, 0);
 }
 
 function changeText(array) {
-    //Continue until all text has been used
-    if(_counter <= array.length) {
-        _guidingText.delay(800).fadeIn(1000, function() {
-           _guidingText.delay(2000).fadeOut(1000, function() {
-               _guidingText.text(array[_counter]);
-               _counter++;
-               //Don't call again if it has been paused
-               if(!_paused){
-                  changeText(array, _counter);
-               }
-          });
-        });
-    }
+  //Continue until all text has been used
+  if (_counter <= array.length) {
+    _guidingText.delay(800).fadeIn(1000, function () {
+      _guidingText.delay(2000).fadeOut(1000, function () {
+        _guidingText.text(array[_counter]);
+        _counter++;
+        //Don't call again if it has been paused
+        if (!_paused) {
+          changeText(array, _counter);
+        }
+      });
+    });
+  }
 }
+
+
+function createInProgressOptionButtons() {
+  _inProgressOptionButtons.show(700);
+  _inProgressOptionButtons.addClass("hoverActive");
+
+  _pauseButton.click(function () {
+    if (!_paused) {
+      _paused = true;
+      _pauseButton.text("Play")
+    } else {
+      _paused = false;
+      _pauseButton.text("Pause");
+      changeText(_textArray, _counter);
+      pulsingRingAnimation();
+    }
+  });
+
+  _exitButton.click(function () {
+    location.reload();
+  })
+}
+
 
 //Text for the meditation
 function createTextArray() {
-    _textArray = [
+  _textArray = [
         "Relax", "Take the next few minutes for yourself", "Focus on the circle", "Let your breathing follow it", "Breathing in as it expands",
         "And breathing out as it contracts", "And as you breathe in and out", "Allow every muscle in your body", "To relax", "And let every bit of stress",
         "Start to fade away", "With every breath out", "Exhale any worries", "Any tension", "Any stress of the day", "Allow yourself this time",
-        "To relax", " ", "And as you breathe", "Imagine that there is a warm, relaxing wave", "Starting to form at your toes", "And with each deep breath", 
+        "To relax", " ", "And as you breathe", "Imagine that there is a warm, relaxing wave", "Starting to form at your toes", "And with each deep breath",
         "This wave moves upwards slightly"
     ];
 }
 
-function createPauseButton() {
-    _pauseButton.show(700);
-    _pauseButton.addClass("hoverActive");
-  
-    _pauseButton.click(function(){
-      if(!_paused){
-        _paused = true;
-        _pauseButton.text("Play")
-      }
-      else{
-        _paused = false;
-        _pauseButton.text("Pause");
-        changeText(_textArray, _counter);
-        pulsingRingAnimation();
-      }
-  });
-}
-
 //Code from https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API
 function toggleFullScreen() {
-  if (!document.fullscreenElement &&    // alternative standard method
-      !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement ) {  // current working methods
+  if (!document.fullscreenElement && // alternative standard method
+    !document.mozFullScreenElement && !document.webkitFullscreenElement && !document.msFullscreenElement) { // current working methods
     if (document.documentElement.requestFullscreen) {
       document.documentElement.requestFullscreen();
     } else if (document.documentElement.msRequestFullscreen) {
