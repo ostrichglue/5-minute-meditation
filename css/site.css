@@ -58,11 +58,11 @@ html {
 }
 #fullscreenButton {
   top: 125px;
-  left: 75px
+  left: 85px
 }
 #aboutButton {
   top: 125px;
-  left: -75px;
+  left: -85px;
 }
 #aboutInfo {
   display: none;

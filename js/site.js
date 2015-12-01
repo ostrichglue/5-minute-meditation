@@ -1,8 +1,4 @@
 $(function () {
-  initialize();
-});
-
-function initialize() {
   _startButton = $("#startButton");
   _musicOptionButton = $("#musicOptionButton");
   _fullscreenButton = $("#fullscreenButton");
@@ -23,9 +19,10 @@ function initialize() {
   _counter = 0;
   _paused = false;
 
-  _helpText.fadeIn(2000);
-  _startButton.delay(1500).fadeIn(1200);
-  _optionButtons.delay(1700).fadeIn(1200);
+  initialize();
+});
+
+function initialize() {
   createTextArray();
 
   //Fullscreen functionality
@@ -57,19 +54,28 @@ function initialize() {
 
     createInProgressOptionButtons();
   });
+
+  fadeInMainElements();
+}
+
+function fadeInMainElements() {
+  _helpText.fadeIn(2000);
+  _startButton.delay(1500).fadeIn(1200);
+  _optionButtons.delay(1700).fadeIn(1200);
 }
 
 function displayAboutInfo() {
-  _buttons.fadeOut(500);
-  _helpText.fadeOut(500);
+  _buttons.fadeOut(400);
+  _helpText.fadeOut(400);
 
-  _returnButton.fadeIn(300);
-  _aboutText.fadeIn(400);
+  _returnButton.delay(500).fadeIn(300);
+  _aboutText.delay(500).fadeIn(400);
 
   _returnButton.click(function () {
-    _returnButton.fadeOut(300);
+    _returnButton.fadeOut(400);
     _aboutText.fadeOut(400);
-    initialize();
+
+    fadeInMainElements().delay(500);
   });
 }
 
@@ -152,7 +158,8 @@ function createTextArray() {
         "And breathing out as it contracts", "And as you breathe in and out", "Allow every muscle in your body", "To relax", "And let every bit of stress",
         "Start to fade away", "With every breath out", "Exhale any worries", "Any tension", "Any stress of the day", "Allow yourself this time",
         "To relax", " ", "And as you breathe", "Imagine that there is a warm, relaxing wave", "Starting to form at your toes", "And with each deep breath",
-        "This wave moves upwards slightly"
+        "This wave moves upwards slightly", "Relaxing your feet", "Your legs", "Your stomach and chest", "Moving into your arms", "And finally over your head", "Until your entire body is completely relaxed", " ", "And as you continue to breathe deeply", "We will count down",
+        "From ten", "To one", "And when we reach one", "You will be free of any tension or stress", "And completely relaxed"
     ];
 }
 
