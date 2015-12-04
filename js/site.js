@@ -1,10 +1,13 @@
 $(function () {
   _startButton = $("#startButton");
-  _musicOptionButton = $("#musicOptionButton");
   _fullscreenButton = $("#fullscreenButton");
   _aboutButton = $("#aboutButton");
   _returnButton = $("#returnButton");
   _helpText = $("#helpText");
+
+  _musicOptionButton = $("#musicOptionButton");
+  _rainAudio = $("#backgroundRain");
+  _playing = false;
 
   _meditationSection = $("#meditationSection");
   _optionButtons = $(".optionButton");
@@ -57,6 +60,19 @@ function initialize() {
     createInProgressOptionButtons();
   });
 
+//  _musicOptionButton.click(function () {
+//    _musicOptionButton.toggleClass("active");
+//
+//    console.log("clicked");
+//    if (_playing == false) {
+//      $('#backgroundRain')[0].play();
+//      _playing = true;
+//    } else {
+//      $('#backgroundRain')[0].pause();
+//      _playing = false;
+//    }
+//  });
+
   fadeInMainElements();
 }
 
@@ -77,7 +93,7 @@ function displayAboutInfo() {
     _returnButton.fadeOut(400);
     _aboutText.fadeOut(400);
 
-    fadeInMainElements().delay(500);
+    fadeInMainElements(500);
   });
 }
 
