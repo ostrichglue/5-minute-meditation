@@ -193,10 +193,10 @@ function createTextArray() {
         " ", " ", "Now that you are fully relaxed", "take a few deep breaths", "to enjoy this time to yourself.", //In 50
         " ", " ", " ", " ", " ", //Out 55
         " ", "In a few moments", "we will count back up to 5.", "With each number", "you will become more alert.", //In 60
-        "Until we reach 5", "when you will be fully alert.", "Still relaxed", "but ready to return to your day", " ", //Out 65
+        "Until we reach 5", "when you will be fully alert.", "Still relaxed", "but ready to return to your day.", " ", //Out 65
         "1", " ", "2", " ", "3", //In 70
         " ", "4", " ", "5", " ", //Out 75
-        "Now you should be fully alert", "feeling calmer", "and more energized.", "Ready to return to your day.", " ", //In 80
+        "Now you should be fully alert", "feeling calmer", "and more energized.", "Ready to resume your day.", " ", //In 80
         " " //Out 81
     ];
 }
