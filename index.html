@@ -40,12 +40,12 @@
 <body>
   <!--    <audio id="backgroundMusic" src="SimplerTimes.mp3" preload="auto"></audio>-->
 
-  <div id="helpText" class="unselectable">
+  <div id="helpText" class="unselectable text">
     Before you begin, make sure you are comfortable and free from distractions.
   </div>
-  <div id="guidingText"></div>
+  <div id="guidingText" class="text"></div>
 
-  <span id="currentText"></span>
+  <span id="currentText" class="text"></span>
 
   <div id="buttons">
     <div id="startButton" class="hoverActive button">
@@ -67,13 +67,22 @@
     </div>
   </div>
 
-  <div id="pulsingRing"></div>
+  <div id="meditationSection">
+    <div id="pulsingRing"></div>
 
-  <div id="guidingText"></div>
+    <div id="guidingText"></div>
 
-  <div id="pauseButton" class="inProgressOptionButton">Pause</div>
+    <div id="pauseButton" class="inProgressOptionButton">Pause</div>
 
-  <div id="exitButton" class="inProgressOptionButton">Exit</div>
+    <div id="exitButton" class="inProgressOptionButton">Exit</div>
+
+    <div id="thankYouMessage" class="text">
+      I hope you enjoyed this guided meditation! If you have any suggestions, or encountered any issues, please email
+      <a href="mailto:feedback@5minutemeditation.com">feedback@5minutemeditation.com</a>.
+      <br>
+      <br> Sam
+    </div>
+  </div>
 
   <div id="aboutSection">
     <div id="aboutInfo">

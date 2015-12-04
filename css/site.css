@@ -2,18 +2,7 @@ html {
   background-color: #E5FFFF;
   font-family: 'Josefin Sans', sans-serif;
 }
-.unselectable {
-  /*  Make text unselectable  */
-  -moz-user-select: -moz-none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-#helpText,
-#guidingText,
-#currentText,
-#aboutText {
+.text {
   display: none;
   position: fixed;
   text-align: center;
@@ -46,9 +35,7 @@ html {
   text-align: center;
   line-height: 150px;
   font-size: 25px;
-  /* Hover effect */
-  transition: box-shadow .4s ease-in;
-  box-shadow: 0 0 1em clear;
+  */
 }
 .optionButton {
   width: 100px;
@@ -56,12 +43,12 @@ html {
   line-height: 100px;
   font-size: 16px;
 }
-#fullscreenButton {
+#fullscreenButton,
+#aboutButton {
   top: 125px;
   left: 85px
 }
 #aboutButton {
-  top: 125px;
   left: -85px;
 }
 #aboutInfo {
@@ -84,9 +71,6 @@ html {
   border: none;
   text-align: center;
   line-height: 75px;
-  /* Hover effect */
-  transition: box-shadow .4s ease-in;
-  box-shadow: 0 0 1em clear;
 }
 #pulsingRing {
   display: none;
@@ -118,9 +102,25 @@ html {
 #exitButton {
   left: 20px;
 }
+
+/* Hover effect for buttons */
+
 .hoverActive:hover {
   /* Hover effect */
   transition: box-shadow .4s ease-in;
   box-shadow: 0 0 1em #5AECD9;
   cursor: pointer;
+}
+.hoverActive {
+  /* Hover effect */
+  transition: box-shadow .4s ease-in;
+  box-shadow: 0 0 1em clear;
+}
+.unselectable {
+  /*  Make text unselectable  */
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
