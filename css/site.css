@@ -1,3 +1,20 @@
+/*
+############### CSS COLOR INFO ###############
+### LIGHT THEME
+##### html ## background-color: #E5FFFF;
+##### .button, #aboutReturnButton, #optionsReturnButton ## background-color: #40FFF6;
+##### .inProgressOptionButton ## background-color: #C0FFFF;
+##### .hoverActive:hove ## box-shadow: 0 0 1em #5AECD9;
+##### #pulsingRing ## background-color: #8DFFFF;
+### DARK THEME
+##### html ## background-color: #666666;
+##### .button, #aboutReturnButton, #optionsReturnButton ## background-color: #40FFF6;
+##### .inProgressOptionButton ## background-color: #C0FFFF;
+##### .hoverActive:hover ## box-shadow: 0 0 1em #5AECD9;
+##### #pulsingRing ## background-color: #8DFFFF;
+
+*/
+
 html {
   background-color: #E5FFFF;
   font-family: 'Josefin Sans', sans-serif;
@@ -46,6 +63,12 @@ a {
   line-height: 100px;
   font-size: 16px;
 }
+.optionsSectionButton {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  font-size: 16px;
+}
 #fullscreenButton,
 #aboutButton {
   top: 100px;
@@ -54,18 +77,30 @@ a {
 #aboutButton {
   left: -115px;
 }
-#musicOptionButton {
+#rainyMoodButton {
+  top: 185px;
+  ;
+  left: 0px;
+}
+#switchThemeButton {
+  top: 125px;
+  left: -100px;
+}
+#optionSelectButton {
   top: 150px;
   left: 0px;
 }
-#aboutInfo {
+#aboutInfo,
+#optionsSection {
   display: none;
   position: absolute;
   top: 200px;
-  margin: 0 20%;
   text-align: center;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-#returnButton {
+#aboutReturnButton,
+#optionsReturnButton {
   display: none;
   position: absolute;
   height: 75px;
@@ -116,6 +151,12 @@ a {
   /* Hover effect */
   transition: box-shadow .4s ease-in;
   box-shadow: 0 0 1em #5AECD9;
+  cursor: pointer;
+}
+.hoverActive.darkTheme:hover {
+  /* Hover effect */
+  transition: box-shadow .4s ease-in;
+  box-shadow: 0 0 1em #FFFFFF;
   cursor: pointer;
 }
 .hoverActive {
