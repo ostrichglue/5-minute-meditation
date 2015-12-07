@@ -60,18 +60,18 @@ function initialize() {
     createInProgressOptionButtons();
   });
 
-//  _musicOptionButton.click(function () {
-//    _musicOptionButton.toggleClass("active");
-//
-//    console.log("clicked");
-//    if (_playing == false) {
-//      $('#backgroundRain')[0].play();
-//      _playing = true;
-//    } else {
-//      $('#backgroundRain')[0].pause();
-//      _playing = false;
-//    }
-//  });
+  //  _musicOptionButton.click(function () {
+  //    _musicOptionButton.toggleClass("active");
+  //
+  //    console.log("clicked");
+  //    if (_playing == false) {
+  //      $('#backgroundRain')[0].play();
+  //      _playing = true;
+  //    } else {
+  //      $('#backgroundRain')[0].pause();
+  //      _playing = false;
+  //    }
+  //  });
 
   fadeInMainElements();
 }
@@ -203,7 +203,7 @@ function createTextArray() {
         "and any stress of the day.", "Allow yourself this time", "to relax.", "And as you breathe", "imagine that there is a warm, relaxing wave", //In 20
         "starting to form at your toes.", "With each deep breath", "this wave moves upwards slightly.", "Relaxing your feet first", "then your legs,", //Out 25
         "your stomach and chest,", "moving into your arms", "and finally over your head.", "Making your entire body", "relaxed and calm.", //In 30
-        "Now, as you continue to breathe deeply", "we will count down 5 breaths.", "When we reach 1", "any remaining tension and stress", "will be gone.", //Out 35
+        "As you continue to breathe deeply", "we will count down 5 breaths.", "When we reach 1", "any remaining tension and stress", "will be gone.", //Out 35
         "5", " ", "4", " ", "3", //In 40
         " ", "2", " ", "1", " ", //Out 45
         " ", " ", "Now that you are fully relaxed", "take a few deep breaths", "to enjoy this time to yourself.", //In 50
