@@ -33,6 +33,9 @@
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
   <script src="js/site.js"></script>
 
+  <!-- Cookies -->
+  <script src="js/js.cookie.js"></script>
+
   <!--  Font  -->
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
@@ -113,6 +116,13 @@
 
     <div id="switchThemeButton" class="hoverActive button optionsSectionButton">
       <span id="switchThemeText" class="bubbleText">Switch Theme</span>
+    </div>
+
+    <div id="changeRateButton" class="hoverActive button optionsSectionButton">
+      <div id="increaseBreathRateButton" class="hoverActive button optionsSectionButton unselectable">+</div>
+      <div id="decreaseBreathRateButton" class="hoverActive button optionsSectionButton unselectable">-</div>
+      <div id="breathRateInfo" class="button"></div>
+      <span id="changeRateText" class="bubbleText">Breath Rate</span>
     </div>
 
     <div id="optionsReturnButton" class="hoverActive">

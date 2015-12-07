@@ -12,7 +12,6 @@
 ##### .inProgressOptionButton ## background-color: #C0FFFF;
 ##### .hoverActive:hover ## box-shadow: 0 0 1em #5AECD9;
 ##### #pulsingRing ## background-color: #8DFFFF;
-
 */
 
 html {
@@ -79,12 +78,33 @@ a {
 }
 #rainyMoodButton {
   top: 185px;
-  ;
   left: 0px;
 }
 #switchThemeButton {
   top: 125px;
   left: -100px;
+}
+#changeRateButton {
+  top: 125px;
+  left: 100px;
+}
+#increaseBreathRateButton,
+#decreaseBreathRateButton {
+  top: -25px;
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+}
+#decreaseBreathRateButton {
+  top: 125px;
+}
+#breathRateInfo {
+  height: 40px;
+  width: 40px;
+  font-size: 16px;
+  line-height: 40px;
+  top: 50px;
+  left: 130px;
 }
 #optionSelectButton {
   top: 150px;
@@ -156,7 +176,7 @@ a {
 .hoverActive.darkTheme:hover {
   /* Hover effect */
   transition: box-shadow .4s ease-in;
-  box-shadow: 0 0 1em #FFFFFF;
+  box-shadow: 0 0 1em #FFF8D3;
   cursor: pointer;
 }
 .hoverActive {

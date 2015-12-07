@@ -13,6 +13,7 @@ $(function () {
   _optionButtons = $(".optionButton");
   _inProgressOptionButtons = $(".inProgressOptionButton");
   _buttons = $(".button");
+  _breathSpeed = 3000;
 
   _optionSelectButton = $("#optionSelectButton");
   _optionsSection = $("#optionsSection");
@@ -47,7 +48,25 @@ function initialize() {
 
   //Options functionality
   _optionSelectButton.click(function () {
-    displayOptionsInfo();
+    fadeOutMainElements();
+
+    _optionsSection.delay(600).fadeIn(500);
+    _optionsSection.find("div").fadeIn(600);
+    $("#breathRateInfo").text(_breathSpeed / 1000 + "s");
+  });
+
+  $("#increaseBreathRateButton").click(function () {
+    if (_breathSpeed < 5000) {
+      _breathSpeed += 100;
+    }
+    $("#breathRateInfo").text(_breathSpeed / 1000 + "s");
+  });
+
+  $("#decreaseBreathRateButton").click(function () {
+    if (_breathSpeed > 3000) {
+      _breathSpeed -= 100;
+    }
+    $("#breathRateInfo").text(_breathSpeed / 1000 + "s");
   });
 
   //Begin meditation
@@ -74,20 +93,23 @@ function initialize() {
   _switchThemeButton.click(function () {
     _switchThemeButton.toggleClass("darkThemeOn");
     $(".hoverActive").toggleClass("darkTheme");
+    //Dark Theme
     if (_switchThemeButton.hasClass("darkThemeOn")) {
       $("html").css({
         "backgroundColor": "#888888"
       });
       $(".button, #aboutReturnButton, #optionsReturnButton").css({
-        "backgroundColor": "#B2B2B2"
+        "backgroundColor": "#FFF8D3"
       });
       $(".inProgressOptionButton").css({
-        "backgroundColor": "#CCCCCC"
+        "backgroundColor": "#999999"
       });
       $("#pulsingRing").css({
-        "backgroundColor": "#BBBBBB"
+        "backgroundColor": "#C5C7B6"
       });
-    } else {
+    }
+    //Light Theme
+    else {
       $("html").css({
         "backgroundColor": "#E5FFFF"
       });
@@ -171,14 +193,6 @@ function displayAboutInfo() {
   _aboutText.delay(500).fadeIn(400);
 }
 
-function displayOptionsInfo() {
-  fadeOutMainElements();
-
-  _optionsSection.delay(500).fadeIn(400);
-  _optionsReturnButton.delay(500).fadeIn(300);
-  $(".optionsSectionButton").delay(500).fadeIn(400);
-}
-
 function beginMeditation() {
   _pulsingRing = $("#pulsingRing");
   _guidingText = $("#guidingText");
@@ -197,11 +211,11 @@ function pulsingRingAnimation() {
     _pulsingRing.delay(600).animate({
       width: "150px",
       height: "150px"
-    }, 3000, "easeInSine", function () {
+    }, _breathSpeed, "easeInSine", function () {
       _pulsingRing.delay(600).animate({
         width: "60px",
         height: "60px"
-      }, 3000, "easeInSine", function () {
+      }, _breathSpeed, "easeInSine", function () {
         if (!_paused) {
           pulsingRingAnimation();
         }
@@ -213,8 +227,8 @@ function pulsingRingAnimation() {
 function changeText(array) {
   //Continue until all text has been used
   if (_counter <= array.length) {
-    _guidingText.delay(600).fadeIn(600, function () {
-      _guidingText.delay(1800).fadeOut(600, function () {
+    _guidingText.delay(500).fadeIn(500, function () {
+      _guidingText.delay(_breathSpeed - 900).fadeOut(500, function () {
         _guidingText.text(array[_counter]);
         _counter++;
         //Don't call again if it has been paused
