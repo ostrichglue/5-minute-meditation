@@ -13,7 +13,7 @@ $(function () {
   _optionButtons = $(".optionButton");
   _inProgressOptionButtons = $(".inProgressOptionButton");
   _buttons = $(".button");
-  _breathSpeed = 3000;
+  _breathSpeed = 3500;
 
   _optionSelectButton = $("#optionSelectButton");
   _optionsSection = $("#optionsSection");
@@ -89,8 +89,6 @@ function initialize() {
     createInProgressOptionButtons();
   });
 
-<<<<<<< HEAD
-=======
   //Switch between dark and light theme
   _switchThemeButton.click(function () {
     _switchThemeButton.toggleClass("darkThemeOn");
@@ -160,7 +158,6 @@ function initialize() {
     }
   });
 
->>>>>>> testing
   //  _musicOptionButton.click(function () {
   //    _musicOptionButton.toggleClass("active");
   //
