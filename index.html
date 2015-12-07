@@ -33,6 +33,9 @@
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
   <script src="js/site.js"></script>
 
+  <!-- Cookies -->
+  <script src="js/js.cookie.js"></script>
+
   <!--  Font  -->
   <link href='http://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
 </head>
@@ -50,12 +53,19 @@
       <span id="beginText" class="unselectable bubbleText">Begin</span>
     </div>
 
-    <a target="_blank" href="http://www.rainymood.com">
-      <div id="musicOptionButton" class="hoverActive optionButton button">
-        <span id="musicToggleText" class="bubbleText">Rainy Mood</span>
-        <!--        <audio id="backgroundRain" src="rain.ogg" preload="auto" loop></audio>-->
-      </div>
-    </a>
+    <!--
+<a target="_blank" href="http://www.rainymood.com">
+  <div id="musicOptionButton" class="hoverActive optionButton button">
+    <span id="musicToggleText" class="bubbleText">Rainy Mood</span>
+    <audio id="backgroundRain" src="rain.ogg" preload="auto" loop></audio>
+  </div>
+</a>
+-->
+
+    <div id="optionSelectButton" class="optionButton hoverActive button">
+      <span id="optionsText" class="unselectable bubbleText">Options</span>
+    </div>
+
 
     <div id="fullscreenButton" class="optionButton hoverActive button">
       <span id="fullscreenOnOffText" class="unselectable bubbleText fullscreenOff">Fullscreen</span>
@@ -83,20 +93,42 @@
     </div>
   </div>
 
-  <div id="aboutSection">
-    <div id="aboutInfo">
-      Welcome to 5 Minute Meditation! I decided to create this site after I began to get panic attacks my junior year of college. I found that deep breathing exercises were effective in helping myself calm down during them, and wanted to create a simple and quick guided breathing exercise for myself and others to use. Thankfully, I rarely have attacks anymore, but still use this breathing exercise when feeling stressed.
-      <br>
-      <br>I hope that you find some use in it as well.
-      <br>
-      <br> If you have any suggestions, feedback, or encountered any issues, please email <b><a href="mailto:feedback@5minutemeditation.com">feedback@5minutemeditation.com</a></b>.
-      <br>
-      <br>
-      <br>Sam
-      <div id="returnButton" class="hoverActive">
-        <span id="returnText" class="unselectable bubbleText">Return</span>
-      </div>
+  <div id="aboutInfo">
+    Welcome to 5 Minute Meditation! I decided to create this site after I began to get panic attacks my junior year of college. I found that deep breathing exercises were effective in helping myself calm down during them, and wanted to create a simple and quick guided breathing exercise for myself and others to use. Thankfully, I rarely have attacks anymore, but still use this breathing exercise when feeling stressed.
+    <br>
+    <br>I hope that you find some use in it as well.
+    <br>
+    <br> If you have any suggestions, feedback, or encountered any issues, please email <b><a href="mailto:feedback@5minutemeditation.com">feedback@5minutemeditation.com</a></b>.
+    <br>
+    <br>
+    <br>Sam
+    <div id="aboutReturnButton" class="hoverActive">
+      <span id="aboutReturnText" class="unselectable bubbleText">Return</span>
     </div>
+  </div>
+
+  <div id="optionsSection">
+    <a target="_blank" href="http://www.rainymood.com">
+      <div id="rainyMoodButton" class="hoverActive button optionsSectionButton">
+        <span id="rainyMoodText" class="bubbleText">Rainy Mood</span>
+      </div>
+    </a>
+
+    <div id="switchThemeButton" class="hoverActive button optionsSectionButton">
+      <span id="switchThemeText" class="bubbleText">Switch Theme</span>
+    </div>
+
+    <div id="changeRateButton" class="hoverActive button optionsSectionButton">
+      <div id="increaseBreathRateButton" class="hoverActive button optionsSectionButton unselectable">+</div>
+      <div id="decreaseBreathRateButton" class="hoverActive button optionsSectionButton unselectable">-</div>
+      <div id="breathRateInfo" class="button"></div>
+      <span id="changeRateText" class="bubbleText">Breath Rate</span>
+    </div>
+
+    <div id="optionsReturnButton" class="hoverActive">
+      <span id="optionsReturnText" class="unselectable bubbleText">Return</span>
+    </div>
+
   </div>
 </body>
 
