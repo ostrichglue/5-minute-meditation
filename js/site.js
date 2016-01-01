@@ -1,6 +1,6 @@
 $(function () {
   _startButton = $("#startButton");
-  _fullscreenButton = $("#fullscreenButton");
+  _fullscreenButton = $(".fullscreenToggler");
   _aboutButton = $("#aboutButton");
   _aboutReturnButton = $("#aboutReturnButton");
   _helpText = $("#helpText");
@@ -12,8 +12,9 @@ $(function () {
   _meditationSection = $("#meditationSection");
   _optionButtons = $(".optionButton");
   _inProgressOptionButtons = $(".inProgressOptionButton");
+  _endReloadButton = $("#endReloadButton");
   _buttons = $(".button");
-  _breathSpeed = 3500;
+  _breathRate = 3500;
 
   _optionSelectButton = $("#optionSelectButton");
   _optionsSection = $("#optionsSection");
@@ -21,7 +22,7 @@ $(function () {
   _switchThemeButton = $("#switchThemeButton");
 
   _fullscreenText = $("#fullscreenOnOffText");
-  _aboutText = $("#aboutInfo");
+  _aboutInfo = $("#aboutInfo");
   _thankYouMessage = $("#thankYouMessage");
 
   _pauseButton = $("#pauseButton");
@@ -29,6 +30,17 @@ $(function () {
 
   _counter = 0;
   _paused = false;
+
+  //Cookies
+  if (Cookies.get('theme') === 'dark') {
+    _switchThemeButton.addClass('darkThemeOn');
+    $('link[href="css/lightTheme.css"]').attr('href', 'css/darkTheme.css');
+  }
+  if (Cookies.get('breathRate')) {
+    _breathRate = parseInt(Cookies.get('breathRate'));
+  } else {
+    setCookie('breathRate', _breathRate, 365);
+  }
 
   initialize();
 });
@@ -44,7 +56,7 @@ function initialize() {
   //About functionality
   _aboutButton.click(function () {
     displayAboutInfo();
-  })
+  });
 
   //Options functionality
   _optionSelectButton.click(function () {
@@ -52,21 +64,23 @@ function initialize() {
 
     _optionsSection.delay(600).fadeIn(500);
     _optionsSection.find("div").fadeIn(600);
-    $("#breathRateInfo").text(_breathSpeed / 1000 + "s");
+    $("#breathRateInfo").text(_breathRate / 1000 + "s");
   });
 
   $("#increaseBreathRateButton").click(function () {
-    if (_breathSpeed < 5000) {
-      _breathSpeed += 100;
+    if (_breathRate < 6000) {
+      _breathRate += 100;
+      setCookie('breathRate', _breathRate, 365);
     }
-    $("#breathRateInfo").text(_breathSpeed / 1000 + "s");
+    $("#breathRateInfo").text(_breathRate / 1000 + "s");
   });
 
   $("#decreaseBreathRateButton").click(function () {
-    if (_breathSpeed > 3000) {
-      _breathSpeed -= 100;
+    if (_breathRate > 3000) {
+      _breathRate -= 100;
+      setCookie('breathRate', _breathRate, 365);
     }
-    $("#breathRateInfo").text(_breathSpeed / 1000 + "s");
+    $("#breathRateInfo").text(_breathRate / 1000 + "s");
   });
 
   //Begin meditation
@@ -83,6 +97,8 @@ function initialize() {
       width: "60px",
       height: "60px",
     }, 1500, "easeOutBounce", function () {
+      $("#centerCircle").show();
+      _startButton.hide();
       beginMeditation();
     });
 
@@ -91,39 +107,7 @@ function initialize() {
 
   //Switch between dark and light theme
   _switchThemeButton.click(function () {
-    _switchThemeButton.toggleClass("darkThemeOn");
-    $(".hoverActive").toggleClass("darkTheme");
-    //Dark Theme
-    if (_switchThemeButton.hasClass("darkThemeOn")) {
-      $("html").css({
-        "backgroundColor": "#888888"
-      });
-      $(".button, #aboutReturnButton, #optionsReturnButton").css({
-        "backgroundColor": "#FFF8D3"
-      });
-      $(".inProgressOptionButton").css({
-        "backgroundColor": "#999999"
-      });
-      $("#pulsingRing").css({
-        "backgroundColor": "#C5C7B6"
-      });
-    }
-    //Light Theme
-    else {
-      $("html").css({
-        "backgroundColor": "#E5FFFF"
-      });
-      $(".button, #aboutReturnButton, #optionsReturnButton").css({
-        "backgroundColor": "#40FFF6"
-      });
-      $(".inProgressOptionButton").css({
-        "backgroundColor": "#C0FFFF"
-      });
-      $("#pulsingRing").css({
-        "backgroundColor": "#8DFFFF"
-      });
-    }
-
+    switchTheme();
   });
 
   _optionsReturnButton.click(function () {
@@ -135,14 +119,18 @@ function initialize() {
 
   _aboutReturnButton.click(function () {
     _aboutReturnButton.fadeOut(400);
-    _aboutText.fadeOut(400);
+    _aboutInfo.fadeOut(400);
 
     fadeInMainElements(500);
   });
 
-  //Reload page if meditation is quit
+  _endReloadButton.click(function () {
+    document.location.reload();
+  })
+
+  //End meditation
   _exitButton.click(function () {
-    location.reload();
+    _counter = _textArray.length;
   });
 
   //Pause on the next cycle after pausing, toggle text
@@ -189,8 +177,7 @@ function displayAboutInfo() {
   fadeOutMainElements();
 
   _aboutReturnButton.delay(500).fadeIn(300);
-
-  _aboutText.delay(500).fadeIn(400);
+  _aboutInfo.delay(500).fadeIn(400);
 }
 
 function beginMeditation() {
@@ -211,15 +198,20 @@ function pulsingRingAnimation() {
     _pulsingRing.delay(600).animate({
       width: "150px",
       height: "150px"
-    }, _breathSpeed, "easeInSine", function () {
-      _pulsingRing.delay(600).animate({
-        width: "60px",
-        height: "60px"
-      }, _breathSpeed, "easeInSine", function () {
-        if (!_paused) {
-          pulsingRingAnimation();
-        }
-      });
+    }, _breathRate, "easeInSine", function () {
+      //Check again to see if paused or ended
+      if (_counter < _textArray.length - 1) {
+        _pulsingRing.delay(600).animate({
+            width: "60px",
+            height: "60px"
+
+          }, _breathRate, "easeInSine",
+          function () {
+            if (!_paused) {
+              pulsingRingAnimation();
+            }
+          });
+      }
     });
   }
 }
@@ -228,11 +220,11 @@ function changeText(array) {
   //Continue until all text has been used
   if (_counter <= array.length) {
     _guidingText.delay(500).fadeIn(500, function () {
-      _guidingText.delay(_breathSpeed - 900).fadeOut(500, function () {
+      _guidingText.delay(_breathRate - 900).fadeOut(500, function () {
         _guidingText.text(array[_counter]);
         _counter++;
         //Don't call again if it has been paused
-        if (!_paused) {
+        if (!_paused || _counter <= array.length) {
           changeText(array, _counter);
         }
       });
@@ -240,17 +232,19 @@ function changeText(array) {
   } else {
     _pulsingRing.fadeOut(400);
     _startButton.fadeOut(400);
+    $("#centerCircle").fadeOut();
 
     _thankYouMessage.delay(800).fadeIn(400);
+    _endReloadButton.delay(800).fadeIn(400);
+    _inProgressOptionButtons.delay(1000).fadeOut(400);
+    _endReloadButton.addClass('hoverActive');
   }
 }
-
 
 function createInProgressOptionButtons() {
   _inProgressOptionButtons.show(700);
   _inProgressOptionButtons.addClass("hoverActive");
 }
-
 
 //Text for the meditation
 function createTextArray() {
@@ -274,6 +268,23 @@ function createTextArray() {
         "Now you should be fully alert", "feeling calmer", "and more energized.", "Ready to resume your day.", " ", //In 80
         " " //Out 81
     ];
+}
+
+function switchTheme() {
+  _switchThemeButton.toggleClass("darkThemeOn");
+
+  //Dark Theme
+  if (_switchThemeButton.hasClass("darkThemeOn")) {
+    $('link[href="css/lightTheme.css"]').attr('href', 'css/darkTheme.css');
+
+    setCookie('theme', 'dark', 365);
+  }
+  //Light Theme
+  else {
+    $('link[href="css/darkTheme.css"]').attr('href', 'css/lightTheme.css');
+
+    setCookie('theme', 'light', 365);
+  }
 }
 
 //Code from https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API
@@ -300,4 +311,11 @@ function toggleFullScreen() {
       document.webkitExitFullscreen();
     }
   }
+}
+
+function setCookie(name, value, expires) {
+  Cookies.set(name, value, {
+    expires: expires,
+    path: '/'
+  });
 }

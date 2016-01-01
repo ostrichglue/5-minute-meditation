@@ -1,0 +1,17 @@
+html {
+  background-color: #E5FFFF;
+}
+.button,
+.returnButton,
+#centerCircle {
+  background-color: #40FFF6;
+}
+#pulsingRing {
+  background-color: #8DFFFF;
+}
+.inProgressOptionButton {
+  background-color: #C0FFFF;
+}
+.hoverActive:hover {
+  box-shadow: 0 0 1em #5AECD9;
+}

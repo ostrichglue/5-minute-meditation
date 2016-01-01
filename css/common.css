@@ -1,21 +1,4 @@
-/*
-############### CSS COLOR INFO ###############
-### LIGHT THEME
-##### html ## background-color: #E5FFFF;
-##### .button, #aboutReturnButton, #optionsReturnButton ## background-color: #40FFF6;
-##### .inProgressOptionButton ## background-color: #C0FFFF;
-##### .hoverActive:hove ## box-shadow: 0 0 1em #5AECD9;
-##### #pulsingRing ## background-color: #8DFFFF;
-### DARK THEME
-##### html ## background-color: #666666;
-##### .button, #aboutReturnButton, #optionsReturnButton ## background-color: #40FFF6;
-##### .inProgressOptionButton ## background-color: #C0FFFF;
-##### .hoverActive:hover ## box-shadow: 0 0 1em #5AECD9;
-##### #pulsingRing ## background-color: #8DFFFF;
-*/
-
 html {
-  background-color: #E5FFFF;
   font-family: 'Josefin Sans', sans-serif;
 }
 .text {
@@ -50,7 +33,6 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background-color: #40FFF6;
   border: none;
   text-align: center;
   line-height: 150px;
@@ -119,8 +101,7 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#aboutReturnButton,
-#optionsReturnButton {
+.returnButton {
   display: none;
   position: absolute;
   height: 75px;
@@ -129,24 +110,26 @@ a {
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 75px;
-  background-color: #40FFF6;
   border: none;
   text-align: center;
   line-height: 75px;
 }
-#pulsingRing {
+#pulsingRing,
+#centerCircle {
   display: none;
-  position: fixed;
+  position: absolute;
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background-color: #8DFFFF;
   border: none;
   z-index: -5;
+}
+#centerCircle {
+  z-index: 0;
 }
 .inProgressOptionButton {
   display: none;
@@ -155,7 +138,6 @@ a {
   height: 50px;
   width: 50px;
   text-align: center;
-  background-color: #C0FFFF;
   bottom: 20px;
   right: 20px;
   line-height: 50px;
@@ -164,19 +146,16 @@ a {
 #exitButton {
   left: 20px;
 }
+#inProgressFullscreenButton {
+  left: 50%;
+  transform: translate(-50%, 0);
+}
 
 /* Hover effect for buttons */
 
 .hoverActive:hover {
   /* Hover effect */
   transition: box-shadow .4s ease-in;
-  box-shadow: 0 0 1em #5AECD9;
-  cursor: pointer;
-}
-.hoverActive.darkTheme:hover {
-  /* Hover effect */
-  transition: box-shadow .4s ease-in;
-  box-shadow: 0 0 1em #FFF8D3;
   cursor: pointer;
 }
 .hoverActive {
