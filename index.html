@@ -30,9 +30,13 @@
   <title>5 Minute Meditation</title>
 
   <!-- Styles -->
-  <link href="css/common.css" type="text/css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!--<link href="css/small-common.css" type="text/css" rel="stylesheet" media="max-width: 480px">-->
+  <link href="css/common.min.css" type="text/css" rel="stylesheet">
+
   <link href="css/lightTheme.css" type="text/css" rel="stylesheet" title="lightTheme">
-  <link href="css/darkTheme.css" type="text/css" rel="alternate stylesheet" title="darkTheme">
+  <link href="css/lightTheme.css" type="text/css" rel="alternate stylesheet" title="darkTheme">
 
   <!--  CDNs  -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -40,9 +44,11 @@
   <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
   <!-- Local -->
-  <!--  <script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script> -->
-  <!--  <script src="/js/jquery-migrate-1.2.1.js" type="text/javascript"></script>  -->
-  <!--  <script src="/js/jquery-ui.min.js" type="text/javascript"></script>  -->
+  <!--
+<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="/js/jquery-migrate-1.2.1.js" type="text/javascript"></script>
+<script src="/js/jquery-ui.min.js" type="text/javascript"></script>
+-->
 
   <!--   Site Script -->
   <script src="/js/site.js" type="text/javascript"></script>
@@ -57,51 +63,45 @@
 </head>
 
 <body>
-  <div id="helpText" class="unselectable text">
-    Before you begin, make sure you are comfortable and free from distractions.
-  </div>
 
-  <div id="guidingText" class="text"></div><span id="currentText" class="text"></span>
-
-  <div id="buttons">
-    <div id="startButton" class="hoverActive button">
-      <span id="beginText" class="unselectable bubbleText">Begin</span>
-    </div>
-    <!--
-    <a target="_blank" href="http://www.rainymood.com">
-  <div id="musicOptionButton" class="hoverActive optionButton button">
-    <span id="musicToggleText" class="bubbleText">Rainy Mood</span>
-    <audio id="backgroundRain" src="rain.ogg" preload="auto" loop></audio>
-  </div>
-</a>
--->
-
-    <div id="optionSelectButton" class="optionButton hoverActive button">
-      <span id="optionsText" class="unselectable bubbleText">Options</span>
+  <div id="mainSection" class="section">
+    <div id="helpText" class="unselectable text">
+      Before you begin, make sure you are comfortable and free from distractions.
     </div>
 
-    <div id="fullscreenButton" class="optionButton hoverActive button fullscreenToggler">
-      <span id="fullscreenOnOffText" class="unselectable bubbleText fullscreenOff">Fullscreen</span>
-    </div>
+    <div id="mainPageButtons">
+      <div id="startButton" class="hoverActive button">
+        <span id="beginText" class="unselectable bubbleText">Begin</span>
+      </div>
 
-    <div id="aboutButton" class="optionButton hoverActive button">
-      <span id="aboutButtonText" class="unselectable bubbleText">About</span>
+      <div id="optionsButton" class="mainSectionButton hoverActive button">
+        <span id="optionsText" class="unselectable bubbleText">Options</span>
+      </div>
+
+      <div id="fullscreenButton" class="mainSectionButton hoverActive button fullscreenToggler">
+        <span id="fullscreenOnOffText" class="unselectable bubbleText fullscreenOff">Fullscreen</span>
+      </div>
+
+      <div id="aboutButton" class="mainSectionButton hoverActive button">
+        <span id="aboutButtonText" class="unselectable bubbleText">About</span>
+      </div>
     </div>
   </div>
 
-  <div id="meditationSection">
+  <div id="meditationSection" class="section">
+    <div id="guidingText" class="text"></div><span id="currentText" class="text"></span>
     <div id="pulsingRing"></div>
     <div id="centerCircle" class="button"></div>
 
-    <div id="pauseButton" class="inProgressOptionButton hoverActive">
+    <div id="pauseButton" class="inProgressmainSectionButton hoverActive">
       Pause
     </div>
 
-    <div id="exitButton" class="inProgressOptionButton hoverActive">
+    <div id="exitButton" class="inProgressmainSectionButton hoverActive">
       End
     </div>
 
-    <div id="inProgressFullscreenButton" class="inProgressOptionButton hoverActive fullscreenToggler">
+    <div id="inProgressFullscreenButton" class="inProgressmainSectionButton hoverActive fullscreenToggler">
       Fullscreen
     </div>
 
@@ -116,7 +116,7 @@
     </div>
   </div>
 
-  <div id="aboutInfo">
+  <div id="aboutSection" class="section">
     Welcome to 5 Minute Meditation! I created this site as a way for myself and others to have a simple guided breathing exercise. If you're feeling stressed out and need to relax, just take 5. You may be surprised at what a difference it can make.
     <br>
     <br>
@@ -130,7 +130,7 @@
     </div>
   </div>
 
-  <div id="optionsSection">
+  <div id="optionsSection" class="section">
     <a target="_blank" href="http://www.rainymood.com"></a>
 
     <div id="rainyMoodButton" class="hoverActive button optionsSectionButton">

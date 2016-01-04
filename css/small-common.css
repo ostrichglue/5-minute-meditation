@@ -3,7 +3,7 @@ html {
 }
 .text {
   display: none;
-  position: absolute;
+  position: fixed;
   text-align: center;
   top: 25%;
   left: 50%;
@@ -27,22 +27,27 @@ a {
 .button {
   display: none;
   position: absolute;
-  width: 150px;
-  height: 150px;
-  line-height: 150px;
+  width: 80px;
+  height: 80px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   border: none;
   text-align: center;
+  line-height: 80px;
   font-size: 25px;
 }
-.mainSectionButton,
+.mainSectionButton {
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
+  font-size: 16px;
+}
 .optionsSectionButton {
-  width: 100px;
-  height: 100px;
-  line-height: 100px;
+  width: 55px;
+  height: 55px;
+  line-height: 55px;
   font-size: 16px;
 }
 #fullscreenButton,
@@ -53,17 +58,13 @@ a {
 #aboutButton {
   left: -115px;
 }
-#optionsButton {
-  top: 150px;
+#rainyMoodButton {
+  top: 185px;
   left: 0px;
 }
 #switchThemeButton {
   top: 125px;
   left: -100px;
-}
-#rainyMoodButton {
-  top: 185px;
-  left: 0px;
 }
 #changeRateButton {
   top: 125px;
@@ -87,14 +88,18 @@ a {
   top: 50px;
   left: 130px
 }
+#optionsButton {
+  top: 150px;
+  left: 0px;
+}
 #aboutSection,
 #optionsSection {
   display: none;
   position: absolute;
+  top: 200px;
   text-align: center;
-  top: 15%;
   left: 50%;
-  transform: translate(-50%, -15%);
+  transform: translate(-50%, -50%);
 }
 .returnButton {
   display: none;
@@ -165,79 +170,4 @@ a {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-/* Mobile-Friendly CSS */
-
-@media (max-width: 627px) {
-  .text {
-    font-size: 16px;
-  }
-  .button {
-    height: 95px;
-    width: 95px;
-    line-height: 95px;
-    font-size: 16px;
-  }
-  #fullscreenButton,
-  #aboutButton {
-    top: 60px;
-    left: 95px;
-  }
-  #aboutButton {
-    left: -95px;
-  }
-  #optionsButton {
-    top: 110px;
-  }
-  .mainSectionButton,
-  .optionsSectionButton {
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
-    font-size: 12px;
-  }
-  .optionsSectionButton {
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-    font-size: 10px;
-  }
-  #switchThemeButton {
-    top: 125px;
-    left: -75px;
-  }
-  #rainyMoodButton {
-    top: 160px;
-    left: 0px;
-  }
-  #changeRateButton {
-    top: 125px;
-    left: 75px;
-  }
-  #increaseBreathRateButton,
-  #decreaseBreathRateButton {
-    top: -25px;
-    height: 25px;
-    width: 25px;
-    line-height: 25px;
-  }
-  #decreaseBreathRateButton {
-    top: 85px;
-  }
-  #breathRateInfo {
-    height: 30px;
-    width: 30px;
-    line-height: 30px;
-    top: 30px;
-    left: 85px;
-    font-size: 12px;
-  }
-  #aboutSection,
-  #optionsSection {
-    font-size: 14px;
-  }
-  #aboutSection {
-    width: 75%;
-  }
 }

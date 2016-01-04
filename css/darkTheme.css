@@ -9,13 +9,9 @@ html {
 #pulsingRing {
   background-color: #C5C7B6;
 }
-.inProgressOptionButton {
+.inProgressmainSectionButton {
   background-color: #999999;
 }
-
-/* Hover effect for buttons */
-
 .hoverActive:hover {
-  /* Hover effect */
   box-shadow: 0 0 1em #FFF8D3;
 }

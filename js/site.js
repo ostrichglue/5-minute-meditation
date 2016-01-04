@@ -10,19 +10,19 @@ $(function () {
   _playing = false;
 
   _meditationSection = $("#meditationSection");
-  _optionButtons = $(".optionButton");
-  _inProgressOptionButtons = $(".inProgressOptionButton");
+  _mainSectionButtons = $(".mainSectionButton");
+  _inProgressmainSectionButtons = $(".inProgressmainSectionButton");
   _endReloadButton = $("#endReloadButton");
   _buttons = $(".button");
   _breathRate = 3500;
 
-  _optionSelectButton = $("#optionSelectButton");
+  _optionsButton = $("#optionsButton");
   _optionsSection = $("#optionsSection");
   _optionsReturnButton = $("#optionsReturnButton");
   _switchThemeButton = $("#switchThemeButton");
 
   _fullscreenText = $("#fullscreenOnOffText");
-  _aboutInfo = $("#aboutInfo");
+  _aboutSection = $("#aboutSection");
   _thankYouMessage = $("#thankYouMessage");
 
   _pauseButton = $("#pauseButton");
@@ -55,11 +55,11 @@ function initialize() {
 
   //About functionality
   _aboutButton.click(function () {
-    displayAboutInfo();
+    displayaboutSection();
   });
 
   //Options functionality
-  _optionSelectButton.click(function () {
+  _optionsButton.click(function () {
     fadeOutMainElements();
 
     _optionsSection.delay(600).fadeIn(500);
@@ -89,7 +89,7 @@ function initialize() {
 
     //Fade out misc elements
     _helpText.fadeOut(500);
-    _optionButtons.fadeOut(300);
+    _mainSectionButtons.fadeOut(300);
     $(".bubbleText").fadeOut(300);
 
     //Little bounce animation as the script begins
@@ -102,7 +102,7 @@ function initialize() {
       beginMeditation();
     });
 
-    createInProgressOptionButtons();
+    createInProgressmainSectionButtons();
   });
 
   //Switch between dark and light theme
@@ -119,7 +119,7 @@ function initialize() {
 
   _aboutReturnButton.click(function () {
     _aboutReturnButton.fadeOut(400);
-    _aboutInfo.fadeOut(400);
+    _aboutSection.fadeOut(400);
 
     fadeInMainElements(500);
   });
@@ -146,8 +146,8 @@ function initialize() {
     }
   });
 
-  //  _musicOptionButton.click(function () {
-  //    _musicOptionButton.toggleClass("active");
+  //  _musicmainSectionButton.click(function () {
+  //    _musicmainSectionButton.toggleClass("active");
   //
   //    console.log("clicked");
   //    if (_playing == false) {
@@ -163,9 +163,9 @@ function initialize() {
 }
 
 function fadeInMainElements() {
-  _helpText.fadeIn(1700);
-  _startButton.delay(1000).fadeIn(1000);
-  _optionButtons.delay(1200).fadeIn(1000);
+  _helpText.fadeIn(1500);
+  _startButton.delay(900).fadeIn(900);
+  _mainSectionButtons.delay(1000).fadeIn(900);
 }
 
 function fadeOutMainElements() {
@@ -173,11 +173,11 @@ function fadeOutMainElements() {
   _buttons.fadeOut(400);
 }
 
-function displayAboutInfo() {
+function displayaboutSection() {
   fadeOutMainElements();
 
   _aboutReturnButton.delay(500).fadeIn(300);
-  _aboutInfo.delay(500).fadeIn(400);
+  _aboutSection.delay(500).fadeIn(400);
 }
 
 function beginMeditation() {
@@ -236,14 +236,14 @@ function changeText(array) {
 
     _thankYouMessage.delay(800).fadeIn(400);
     _endReloadButton.delay(800).fadeIn(400);
-    _inProgressOptionButtons.delay(1000).fadeOut(400);
+    _inProgressmainSectionButtons.delay(1000).fadeOut(400);
     _endReloadButton.addClass('hoverActive');
   }
 }
 
-function createInProgressOptionButtons() {
-  _inProgressOptionButtons.show(700);
-  _inProgressOptionButtons.addClass("hoverActive");
+function createInProgressmainSectionButtons() {
+  _inProgressmainSectionButtons.show(700);
+  _inProgressmainSectionButtons.addClass("hoverActive");
 }
 
 //Text for the meditation
