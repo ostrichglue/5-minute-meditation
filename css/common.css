@@ -169,7 +169,7 @@ a {
 
 /* Mobile-Friendly CSS */
 
-@media (max-width: 627px) {
+@media (max-width: 667px) AND (max-height: 375px) {
   .text {
     font-size: 16px;
   }
