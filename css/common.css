@@ -169,7 +169,8 @@ a {
 
 /* Mobile-Friendly CSS */
 
-@media (max-width: 667px) AND (max-height: 375px) {
+@media (max-width: 480px),
+(max-width: 736px) AND (orientation: landscape) {
   .text {
     font-size: 16px;
   }
