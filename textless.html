@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Favicon stuff -->
+  <!--  From http://realfavicongenerator.net/  -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+  <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+  <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5BBAD5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-TileImage" content="/mstile-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>5 Minute Meditation</title>
+
+  <!-- Styles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <!--<link href="css/small-common.css" type="text/css" rel="stylesheet" media="max-width: 480px">-->
+  <link href="css/common.css" type="text/css" rel="stylesheet">
+
+  <link href="css/lightTheme.css" type="text/css" rel="stylesheet" title="lightTheme">
+  <link href="css/darkTheme.css" type="text/css" rel="alternate stylesheet" title="darkTheme">
+
+  <!--  CDNs  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+  <!-- Local -->
+  <!--
+<script src="/js/jquery-1.11.3.min.js" type="text/javascript"></script>
+<script src="/js/jquery-migrate-1.2.1.js" type="text/javascript"></script>
+<script src="/js/jquery-ui.min.js" type="text/javascript"></script>
+-->
+
+  <!--   Site Script -->
+  <script src="/js/textlessSite.js" type="text/javascript"></script>
+
+  <!-- Cookies -->
+  <script src="/js/js.cookie.js"></script>
+
+  <!--  Font  -->
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+  <div id="mainSection" class="section">
+    <div id="helpText" class="unselectable text">
+      Before you begin, make sure you are comfortable and free from distractions.
+    </div>
+
+    <div id="mainPageButtons">
+      <div id="startButton" class="hoverActive button">
+        <span id="beginText" class="unselectable bubbleText">Begin</span>
+      </div>
+
+      <div id="optionsButton" class="mainSectionButton hoverActive button">
+        <span id="optionsText" class="unselectable bubbleText">Options</span>
+      </div>
+
+      <div id="fullscreenButton" class="mainSectionButton hoverActive button fullscreenToggler">
+        <span id="fullscreenOnOffText" class="unselectable bubbleText fullscreenOff">Fullscreen</span>
+      </div>
+
+      <div id="aboutButton" class="mainSectionButton hoverActive button">
+        <span id="aboutButtonText" class="unselectable bubbleText">About</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="meditationSection" class="section">
+    <div id="guidingText" class="text"></div><span id="currentText" class="text"></span>
+    <div id="pulsingRing"></div>
+    <div id="centerCircle" class="button"></div>
+
+    <div id="pauseButton" class="inProgressmainSectionButton hoverActive">
+      Pause
+    </div>
+
+    <div id="exitButton" class="inProgressmainSectionButton hoverActive">
+      End
+    </div>
+
+    <div id="inProgressFullscreenButton" class="inProgressmainSectionButton hoverActive fullscreenToggler">
+      Fullscreen
+    </div>
+
+    <div id="thankYouMessage" class="text">
+      I hope you enjoyed this guided meditation! If you have any suggestions, feedback, or encountered any issues, please email <b><a href="mailto:feedback@5minutemeditation.com">feedback@5minutemeditation.com</a>.</b>
+      <br>
+      <br> Sam
+
+      <div id="endReloadButton" class="returnButton">
+        <span id="aboutReturnText" class="unselectable">Reload</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="aboutSection" class="section">
+    Welcome to 5 Minute Meditation! I created this site as a way for myself and others to have a simple guided breathing exercise. If you're feeling stressed out and need to relax, just take 5. You may be surprised at what a difference it can make.
+    <br>
+    <br>
+    <br> If you have any suggestions, feedback, or encountered any issues, please email <b><a href="mailto:feedback@5minutemeditation.com">feedback@5minutemeditation.com</a></b>.
+    <br>
+    <br>
+    <br> Sam
+
+    <div id="aboutReturnButton" class="hoverActive returnButton">
+      <span id="aboutReturnText" class="unselectable bubbleText">Return</span>
+    </div>
+  </div>
+
+  <div id="optionsSection" class="section">
+    <a target="_blank" href="http://www.rainymood.com"></a>
+
+    <div id="rainyMoodButton" class="hoverActive button optionsSectionButton">
+      <span id="rainyMoodText" class="unselectable bubbleText">Rainy Mood</span>
+    </div>
+
+    <div id="switchThemeButton" class="hoverActive button optionsSectionButton">
+      <span id="switchThemeText" class="unselectable bubbleText">Switch Theme</span>
+    </div>
+
+    <div id="changeRateButton" class="hoverActive button optionsSectionButton">
+      <div id="increaseBreathRateButton" class="hoverActive button optionsSectionButton unselectable">
+        +
+      </div>
+
+      <div id="decreaseBreathRateButton" class="hoverActive button optionsSectionButton unselectable">
+        -
+      </div>
+
+      <div id="breathRateInfo" class="unselectable button"></div><span id="changeRateText" class="unselectable bubbleText">Breath Rate</span>
+    </div>
+
+    <div id="optionsReturnButton" class="hoverActive returnButton">
+      <span id="optionsReturnText" class="unselectable bubbleText">Return</span>
+    </div>
+  </div>
+</body>
+
+</html>
