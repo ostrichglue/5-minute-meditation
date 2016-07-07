@@ -56,7 +56,6 @@ function initialize() {
   //About functionality
   _aboutButton.click(function () {
     displayaboutSection();
-
   });
 
   //Options functionality
@@ -66,7 +65,6 @@ function initialize() {
     _optionsSection.delay(600).fadeIn(500);
     _optionsSection.find("div").fadeIn(600);
     $("#breathRateInfo").text(_breathRate / 1000 + "s");
-
   });
 
   $("#increaseBreathRateButton").click(function () {
@@ -252,22 +250,22 @@ function createInProgressmainSectionButtons() {
 function createTextArray() {
 
   _textArray = [
-        " ", "Relax.", "Take the next few minutes for yourself.", "Focus on the circle.", "Let your breathing follow it.", //Out 5
-        "Breathing in as it expands", "and breathing out as it contracts.", "As you breathe in and out", "allow every muscle in your body", "to relax.", //In 10
-        "Let every bit of stress", "start to fade away.", "With every breath out", "exhale any worries,", "any tension,", //Out 15
-        "and any stress of the day.", "Allow yourself this time", "to relax.", "And as you breathe", "imagine that there is a warm, relaxing wave", //In 20
-        "starting to form at your toes.", "With each deep breath", "this wave moves upwards slightly.", "Relaxing your feet first", "then your legs,", //Out 25
-        "your stomach and chest,", "moving into your arms", "and finally over your head.", "Making your entire body", "relaxed and calm.", //In 30
-        "As you continue to breathe deeply", "we will count down 5 breaths.", "When we reach 1", "any remaining tension and stress", "will be gone.", //Out 35
-        "5", " ", "4", " ", "3", //In 40
-        " ", "2", " ", "1", " ", //Out 45
-        " ", " ", "Now that you are fully relaxed", "take a few deep breaths", "to enjoy this time to yourself.", //In 50
+        " ", " ", " ", " ", " ", //Out 5
+        " ", " ", " ", " ", " ", //In 10
+        " ", " ", " ", " ", " ", //Out 15
+        " ", " ", " ", " ", " ", //In 20
+        " ", " ", " ", " ", " ", //Out 25
+        " ", " ", " ", " ", " ", //In 30
+        " ", " ", " ", " ", " ", //Out 35
+        " ", " ", " ", " ", " ", //In 40
+        " ", " ", " ", " ", " ", //Out 45
+        " ", " ", " ", " ", " ", //In 50
         " ", " ", " ", " ", " ", //Out 55
-        " ", "In a few moments", "we will count back up to 5.", "With each number", "you will become more alert.", //In 60
-        "Until we reach 5", "when you will be fully alert.", "Still relaxed", "but ready to return to your day.", " ", //Out 65
-        "1", " ", "2", " ", "3", //In 70
-        " ", "4", " ", "5", " ", //Out 75
-        "Now you should be fully alert", "feeling calmer", "and more energized.", "Ready to resume your day.", " ", //In 80
+        " ", " ", " ", " ", " ", //In 60
+        " ", " ", " ", " ", " ", //Out 65
+        " ", " ", " ", " ", " ", //In 70
+        " ", " ", " ", " ", " ", //Out 75
+        " ", " ", " ", " ", " ", //In 80
         " " //Out 81
     ];
 }
